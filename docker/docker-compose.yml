@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:latest
+    container_name: ${MYSQL_SERVER}
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+  
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    depends_on:
+      - db
+    links:
+      - db
+    ports:
+      - 8080:80
+    environment:
+      - PMA_ARBITRARY=1
+  
+  app:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: php-application
+    restart: always
+    working_dir: /var/www
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    volumes:
+      - ../src:/var/www/html
+    links:
+      - db
+    depends_on:
+      - db
+
+  nginx:
+    image: nginx:alpine
+    container_name: nginx-server
+    restart: always
+    ports:
+      - "8000:80"
+    volumes:
+      - ../src:/var/www/html
+      - ./nginx:/etc/nginx/conf.d
+    links:
+      - db
+    depends_on:
+      - db
