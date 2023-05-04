@@ -22,7 +22,11 @@ return [
         'action' => 'post'
     ],
     
-    'add' => [
+    'admin/add' => [
+        'controller' => 'admin',
+        'action' => 'add'
+    ],
+    'admin/posts' => [
         'controller' => 'admin',
         'action' => 'add'
     ],
@@ -30,7 +34,7 @@ return [
         'controller' => 'admin',
         'action' => 'delete'
     ],
-    'edit' => [
+    'admin/edit' => [
         'controller' => 'admin',
         'action' => 'edit'
     ],
