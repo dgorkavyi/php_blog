@@ -2,7 +2,7 @@
 
 return [
     'all' => [
-        'about','contact','index','post',
+        'login', 'about', 'contact', 'index', 'post',
     ],
     'admin' => []
 ];
