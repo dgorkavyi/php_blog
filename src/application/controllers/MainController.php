@@ -12,6 +12,10 @@ class MainController extends Controller
     }
     public function contactAction(): void
     {
+        if(!empty($_POST)) {
+            // $this->view->message("Запит зроблено вдало", "форма працює");
+            debug($_POST);
+        }
         $this->view->render('Blog:Contact', []);
     }
     public function aboutAction(): void

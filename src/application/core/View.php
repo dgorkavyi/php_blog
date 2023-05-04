@@ -60,7 +60,7 @@ class View
 		exit;
 	}
 
-	public function message(int $status, string $message): void
+	public function message(string $status, string $message): void
 	{
 		exit(json_encode(["status" => $status, "message" => $message]));
 	}
