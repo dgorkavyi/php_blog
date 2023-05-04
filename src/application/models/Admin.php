@@ -4,5 +4,5 @@ namespace application\models;
 
 use application\core\Model;
 
-class Account extends Model
+class Admin extends Model
 {}
