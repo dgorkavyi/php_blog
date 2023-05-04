@@ -5,40 +5,40 @@ return [
         'controller' => 'main',
         'action' => 'index'
     ],
-    'main/index' => [
+    'index' => [
         'controller' => 'main',
         'action' => 'index'
     ],
-    'main/about' => [
+    'about' => [
         'controller' => 'main',
         'action' => 'about'
     ],
-    'main/contact' => [
+    'contact' => [
         'controller' => 'main',
         'action' => 'contact'
     ],
-    'main/post' => [
+    'post' => [
         'controller' => 'main',
         'action' => 'post'
     ],
     
-    'admin/add' => [
+    'add' => [
         'controller' => 'admin',
         'action' => 'add'
     ],
-    'admin/delete' => [
+    'delete' => [
         'controller' => 'admin',
         'action' => 'delete'
     ],
-    'admin/edit' => [
+    'edit' => [
         'controller' => 'admin',
         'action' => 'edit'
     ],
-    'admin/login' => [
+    'login' => [
         'controller' => 'admin',
         'action' => 'login'
     ],
-    'admin/logout' => [
+    'logout' => [
         'controller' => 'admin',
         'action' => 'logout'
     ],
