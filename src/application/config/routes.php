@@ -9,16 +9,37 @@ return [
         'controller' => 'main',
         'action' => 'index'
     ],
-    'account/register' => [
-        'controller' => 'account',
-        'action' => 'register'
+    'main/about' => [
+        'controller' => 'main',
+        'action' => 'about'
     ],
-    'account/login' => [
-        'controller' => 'account',
+    'main/contact' => [
+        'controller' => 'main',
+        'action' => 'contact'
+    ],
+    'main/post' => [
+        'controller' => 'main',
+        'action' => 'post'
+    ],
+    
+    'admin/add' => [
+        'controller' => 'admin',
+        'action' => 'add'
+    ],
+    'admin/delete' => [
+        'controller' => 'admin',
+        'action' => 'delete'
+    ],
+    'admin/edit' => [
+        'controller' => 'admin',
+        'action' => 'edit'
+    ],
+    'admin/login' => [
+        'controller' => 'admin',
         'action' => 'login'
     ],
-    'news/show' => [
-        'controller' => 'news',
-        'action' => 'show'
+    'admin/logout' => [
+        'controller' => 'admin',
+        'action' => 'logout'
     ],
 ];
