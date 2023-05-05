@@ -18,10 +18,8 @@ class MainController extends Controller
             $form = new ContactForm($_POST);
 
             if ($form->validate()) {
-                // $this->view->message("Запит зроблено вдало", "name: {$_POST['name']}; email: {$_POST['email']}; text: {$_POST['text']}");
-                $result = mail('getaha3604@in2reach.com', "Повідомлення з блогу, від {$_POST['email']}", $form->text);
-                $result = $result ? "true" : "false";
-                $this->view->message('>>>', "$result");
+                $this->view->message("Запит зроблено вдало", "");
+                mail('getaha3604@in2reach.com', "Повідомлення з блогу, від {$_POST['email']}", $form->text);
             } else {
                 extract($form->getErrorData());
                 $this->view->message($errorStatus, $errorText);

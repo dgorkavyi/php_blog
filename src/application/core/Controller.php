@@ -35,8 +35,6 @@ abstract class Controller
     public function checkAcl()
     {
         if ($this->isAcl('all')) return true;
-        if (isset($_SESSION['authorize']['id']) && $this->isAcl('authorize')) return true;
-        if (!isset($_SESSION['authorize']['id']) && $this->isAcl('guest')) return true;
         if (isset($_SESSION['admin']) && $this->isAcl('admin')) return true;
         return false;
     }

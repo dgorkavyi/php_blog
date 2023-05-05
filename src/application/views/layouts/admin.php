@@ -30,7 +30,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/logout">
+                            <a class="nav-link" href="/admin/logout">
                             <i class="fa fa-fw fa-sign-out"></i>
                             <span class="nav-link-text">Вихід</span>
                             </a>

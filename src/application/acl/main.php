@@ -1,8 +1,5 @@
 <?php
 
 return [
-    'all' => [
-        'login', 'about', 'contact', 'index', 'post',
-    ],
-    'admin' => []
+    'all' => ['about', 'contact', 'index', 'post'],
 ];

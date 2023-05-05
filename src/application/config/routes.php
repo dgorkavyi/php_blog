@@ -28,9 +28,9 @@ return [
     ],
     'admin/posts' => [
         'controller' => 'admin',
-        'action' => 'add'
+        'action' => 'posts'
     ],
-    'delete' => [
+    'admin/delete' => [
         'controller' => 'admin',
         'action' => 'delete'
     ],
@@ -38,11 +38,11 @@ return [
         'controller' => 'admin',
         'action' => 'edit'
     ],
-    'login' => [
+    'admin/login' => [
         'controller' => 'admin',
         'action' => 'login'
     ],
-    'logout' => [
+    'admin/logout' => [
         'controller' => 'admin',
         'action' => 'logout'
     ],

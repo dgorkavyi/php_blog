@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'all' => [
-        'login', 'logout', 'add', 'edit', 'delete',
-    ],
-    'admin' => []
+    'all' => ['login'],
+    'admin' => [
+        'logout', 'add', 'edit', 'delete', 'posts'
+    ]
 ];
