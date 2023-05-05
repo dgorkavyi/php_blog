@@ -15,7 +15,7 @@ class AdminController extends Controller
     public function loginAction(): void
     {
         if(!empty($_SESSION['admin']) && $_SESSION['admin'] === true) {
-            $this->view->location("admin/add");
+            $this->view->redirect("/admin/add");
         }
         if (!empty($_POST)) {
             $form = new LoginForm($_POST, require 'application/config/admin.php');
