@@ -36,6 +36,7 @@ class MainController extends Controller
 
     public function postAction(): void
     {
-        $this->view->render('Blog:Post', []);
+        $data = $this->model->getOne($this->params['id']);
+        $this->view->render('Blog:Post', ['data' => $data]);
     }
 }
