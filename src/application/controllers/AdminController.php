@@ -4,6 +4,7 @@ namespace application\controllers;
 
 use application\core\Controller;
 use application\lib\LoginForm;
+use application\lib\Post;
 
 class AdminController extends Controller
 {
@@ -39,6 +40,18 @@ class AdminController extends Controller
     }
     public function addAction(): void
     {
+        if(!empty($_POST)) {
+            $post = new Post($_POST);
+            
+            if ($post->validate()) {
+                $_SESSION['admin'] = true;
+                $this->view->location("admin/add");
+            } else {
+                extract($post->getErrorData());
+                $this->view->message($errorStatus, $errorText);
+            }
+        }
+        
         $this->view->render('Blog:Add post', []);
     }
     public function postsAction(): void
@@ -51,6 +64,8 @@ class AdminController extends Controller
     }
     public function deleteAction(): void
     {
+        debug($this->params);
+
         $this->view->render('Blog:Delete post', []);
     }
 }
