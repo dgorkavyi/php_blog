@@ -8,6 +8,9 @@
                 </div>
             </div>
         </div>
+        <?php if($_SESSION['admin']) {?>
+        <a href="/admin/edit/<?php echo $data['id']; ?>" class="btn btn-primary">Редагувати</a>
+        <?php } ?>
     </div>
 </header>
 <div class="container">
