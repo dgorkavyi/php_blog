@@ -16,15 +16,19 @@ class AdminController extends Controller
     public function loginAction(): void
     {
         if (isset($_SESSION['admin'])) {
+
             $this->view->redirect("/admin/add");
         }
         if (!empty($_POST)) {
+
             $form = new LoginForm($_POST, require 'application/config/admin.php');
 
             if ($form->validate()) {
+
                 $_SESSION['admin'] = true;
                 $this->view->location("admin/add");
             } else {
+
                 extract($form->getErrorData());
                 $this->view->message($errorStatus, $errorText);
             }
@@ -40,19 +44,22 @@ class AdminController extends Controller
     }
     public function addAction(): void
     {
-        if(!empty($_POST)) {
+        if (!empty($_POST)) {
+
             $post = new Post($_POST);
-            
+
             if ($post->validate()) {
+
                 $id = $this->model->add($post);
                 $this->model->uploadImage($_FILES['img']['tmp_name'], $id);
                 $this->view->location("admin/add");
             } else {
+
                 extract($post->getErrorData());
                 $this->view->message($errorStatus, $errorText);
             }
         }
-        
+
         $this->view->render('Blog:Add post', []);
     }
     public function postsAction(): void
@@ -64,13 +71,19 @@ class AdminController extends Controller
     {
         $postArr = $this->model->getOne($this->params['id']);
 
-        if(!empty($_POST)) {
+        if (!empty($_POST)) {
             $post = new Post($_POST);
             if ($post->validate(true)) {
+
                 $id = $this->model->edit($post, $this->params['id']);
-                $this->model->uploadImage($_FILES['img']['tmp_name'], $id);
+
+                if (isset($_FILES['img']['tmp_name']) && iconv_strlen($_FILES['img']['tmp_name']) > 0) {
+                    $this->model->uploadImage($_FILES['img']['tmp_name'], $id);
+                }
+
                 $this->view->location("admin/posts");
             } else {
+
                 extract($post->getErrorData());
                 $this->view->message($errorStatus, $errorText);
             }
@@ -82,7 +95,8 @@ class AdminController extends Controller
     }
     public function deleteAction(): void
     {
-        if($_SESSION['admin']) $this->model->delete($this->params['id']);
+        if ($_SESSION['admin'])
+            $this->model->delete($this->params['id']);
         $this->view->redirect('/admin/posts');
     }
 }

@@ -49,9 +49,9 @@ class Post
             return false;
         }
         
-        $ext = explode(".", $_FILES['img']['name'])[1];
-        
-        if(!($ext === 'jpg' || $ext === 'png' || $ext === 'jpeg')) {
+        $ext = !$type ? explode(".", $_FILES['img']['name'])[1] : "";
+
+        if(!($ext === 'jpg' || $ext === 'png' || $ext === 'jpeg') && !$type) {
             $this->errorStatus = "File type error: ";
             $this->errorText = "jpg, jpeg, png is only allowed.   |$ext|";
             return false;
