@@ -9,7 +9,8 @@ class MainController extends Controller
 {
     public function indexAction(): void
     {
-        $this->view->render('Blog:Main', []);
+        $list = $this->model->get();
+        $this->view->render('Blog:Main', ['list' => $list]);
     }
 
     public function contactAction(): void

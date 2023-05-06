@@ -22,7 +22,7 @@
                             <h2 class="post-title"><?php echo htmlspecialchars($val['title'], ENT_QUOTES); ?></h2>
                             <h5 class="post-subtitle"><?php echo htmlspecialchars($val['description'], ENT_QUOTES); ?></h5>
                         </a>
-                        <p class="post-meta">Номер посту: <?php echo $val['id']; ?></p>
+                        <p class="post-meta">Номер поста: <?php echo $val['id']; ?></p>
                     </div>
                     <hr>
                 <?php endforeach; ?>
