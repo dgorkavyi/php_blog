@@ -13,7 +13,7 @@ class ContactForm
 
     public function __construct(array $post)
     {
-        $this->name = $post['name'];
+        $this->name = $post['title'];
         $this->email = $post['email'];
         $this->text = $post['text'];
         $this->errorStatus = "";

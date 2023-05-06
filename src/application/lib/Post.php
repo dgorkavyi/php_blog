@@ -14,8 +14,7 @@ class Post
 
     public function __construct(array $post)
     {
-        // debug($post);
-        $this->name = $post['name'];
+        $this->name = $post['title'];
         $this->description = $post['description'];
         $this->text = $post['text'];
         $this->errorStatus = "";
@@ -40,7 +39,6 @@ class Post
             return false;
         }
         if (iconv_strlen($this->text) < 3 or iconv_strlen($this->text) > 1500) {
-            debug(iconv_strlen($this->text));
             $this->errorStatus = "Неправильно введений текст: ";
             $this->errorText = "повинен бути не менше трьох символів та не більше 1500.";
             return false;

@@ -8,7 +8,7 @@
                         <form action="/admin/edit/<?php echo $data['id']; ?>" method="post" >
                             <div class="form-group">
                                 <label>Назва</label>
-                                <input class="form-control" type="text" value="<?php echo htmlspecialchars($data['name'], ENT_QUOTES); ?>" name="name">
+                                <input class="form-control" type="text" value="<?php echo htmlspecialchars($data['title'], ENT_QUOTES); ?>" name="title">
                             </div>
                             <div class="form-group">
                                 <label>Опис</label>

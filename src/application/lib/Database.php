@@ -23,8 +23,11 @@ class Database
                 $query->bindValue(":$key", $value);
             }
         }
-        
+        $file = fopen('./test.txt', 'a');
+        fwrite($file, var_export("$query->queryString", true) . "\n");
+        fclose($file);
         $query->execute();
+        
         return $query;
     }
     public function row(string $sql, $params = [])

@@ -40,7 +40,6 @@ class Router
                 return true;
             }
         }
-        debug($url);
         return false;
     }
 

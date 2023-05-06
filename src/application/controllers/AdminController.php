@@ -61,7 +61,22 @@ class AdminController extends Controller
     }
     public function editAction(): void
     {
-        $this->view->render('Blog:Edit post', []);
+        $postArr = $this->model->getOne($this->params['id']);
+
+        if(!empty($_POST)) {
+            $post = new Post($_POST);
+            if ($post->validate()) {
+                $this->model->edit($post, $this->params['id']);
+                $this->view->location("admin/posts");
+            } else {
+                extract($post->getErrorData());
+                $this->view->message($errorStatus, $errorText);
+            }
+        }
+        $vars = [
+            'data' => $postArr
+        ];
+        $this->view->render('Blog:Edit post', $vars);
     }
     public function deleteAction(): void
     {
