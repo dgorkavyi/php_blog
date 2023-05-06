@@ -44,7 +44,7 @@ class AdminController extends Controller
             $post = new Post($_POST);
             
             if ($post->validate()) {
-                $_SESSION['admin'] = true;
+                $this->model->add($post);
                 $this->view->location("admin/add");
             } else {
                 extract($post->getErrorData());
@@ -56,7 +56,8 @@ class AdminController extends Controller
     }
     public function postsAction(): void
     {
-        $this->view->render('Blog:Posts', []);
+        $list = $this->model->get();
+        $this->view->render('Blog:Posts', ['list' => $list]);
     }
     public function editAction(): void
     {
@@ -64,8 +65,7 @@ class AdminController extends Controller
     }
     public function deleteAction(): void
     {
-        debug($this->params);
-
-        $this->view->render('Blog:Delete post', []);
+        if($_SESSION['admin']) $this->model->delete($this->params['id']);
+        $this->view->redirect('/admin/posts');
     }
 }
