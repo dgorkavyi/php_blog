@@ -22,7 +22,7 @@
                                     </tr>
                                 <?php endforeach; ?>
                             </table>
-                            <?php echo $pagination; ?>
+                            <?php echo $pagination->get(); ?>
                         <?php endif; ?>
                     </div>
                 </div>

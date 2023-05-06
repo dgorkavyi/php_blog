@@ -27,7 +27,7 @@
                     <hr>
                 <?php endforeach; ?>
                 <div class="clearfix">
-                    <?php echo $pagination; ?>
+                    <?php echo $pagination->get(); ?>
                 </div>
             <?php endif; ?>
         </div>

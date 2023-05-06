@@ -4,13 +4,16 @@ namespace application\controllers;
 
 use application\core\Controller;
 use application\lib\ContactForm;
+use application\lib\Pagination;
 
 class MainController extends Controller
 {
     public function indexAction(): void
     {
-        $list = $this->model->get();
-        $this->view->render('Blog:Main', ['list' => $list]);
+        $limitPerPage = 2;
+        $list = $this->model->postsList($this->params, $limitPerPage);
+        $pagination = new Pagination($this->params, $this->model->getPostsCount(), $limitPerPage);
+        $this->view->render('Blog:Main', ['list' => $list, 'pagination' => $pagination]);
     }
 
     public function contactAction(): void

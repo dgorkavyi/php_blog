@@ -4,6 +4,7 @@ namespace application\controllers;
 
 use application\core\Controller;
 use application\lib\LoginForm;
+use application\lib\Pagination;
 use application\lib\Post;
 
 class AdminController extends Controller
@@ -64,8 +65,10 @@ class AdminController extends Controller
     }
     public function postsAction(): void
     {
-        $list = $this->model->get();
-        $this->view->render('Blog:Posts', ['list' => $list]);
+        $limitPerPage = 2;
+        $list = $this->model->postsList($this->params, $limitPerPage);
+        $pagination = new Pagination($this->params, $this->model->getPostsCount(), $limitPerPage);
+        $this->view->render('Blog:Main', ['list' => $list, 'pagination' => $pagination]);
     }
     public function editAction(): void
     {

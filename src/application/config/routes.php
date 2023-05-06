@@ -5,7 +5,7 @@ return [
         'controller' => 'main',
         'action' => 'index'
     ],
-    'index' => [
+    'main/index/{page:\d+}' => [
         'controller' => 'main',
         'action' => 'index'
     ],
@@ -26,7 +26,7 @@ return [
         'controller' => 'admin',
         'action' => 'add'
     ],
-    'admin/posts' => [
+    'admin/posts/{page:\d+}' => [
         'controller' => 'admin',
         'action' => 'posts'
     ],

@@ -8,6 +8,7 @@ class Main extends Model
 {
     public function get(): array
     {
+
         return $this->database->row("SELECT * FROM posts;");
     }
     public function getOne(string $id): array

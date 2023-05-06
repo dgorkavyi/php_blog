@@ -12,4 +12,14 @@ abstract class Model
     {
         $this->database = new Database();
     }
+
+    public function getPostsCount() {
+        return $this->database->column('SELECT COUNT(id) FROM posts;');
+    }
+
+    public function postsList($route, $limitPerPage)
+    {
+        $start = ((($route['page'] ?? 1) - 1) * $limitPerPage);
+        return $this->database->row("SELECT * FROM posts ORDER BY id DESC LIMIT $start, $limitPerPage;");
+    }
 }
