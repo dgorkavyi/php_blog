@@ -44,7 +44,8 @@ class AdminController extends Controller
             $post = new Post($_POST);
             
             if ($post->validate()) {
-                $this->model->add($post);
+                $id = $this->model->add($post);
+                $this->model->uploadImage($_FILES['img']['tmp_name'], $id);
                 $this->view->location("admin/add");
             } else {
                 extract($post->getErrorData());
@@ -65,8 +66,9 @@ class AdminController extends Controller
 
         if(!empty($_POST)) {
             $post = new Post($_POST);
-            if ($post->validate()) {
-                $this->model->edit($post, $this->params['id']);
+            if ($post->validate(true)) {
+                $id = $this->model->edit($post, $this->params['id']);
+                $this->model->uploadImage($_FILES['img']['tmp_name'], $id);
                 $this->view->location("admin/posts");
             } else {
                 extract($post->getErrorData());

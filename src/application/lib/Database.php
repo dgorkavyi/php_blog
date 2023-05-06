@@ -38,4 +38,7 @@ class Database
     {
         return $this->query($sql, $params)->fetchColumn();
     }
+    public function lastInsertId() {
+        return $this->connection->lastInsertId();
+    }
 }

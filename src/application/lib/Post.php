@@ -4,7 +4,7 @@ namespace application\lib;
 
 class Post
 {
-    public string $name;
+    public string $title;
     public string $description;
     public string $text;
     public string $img;
@@ -14,7 +14,7 @@ class Post
 
     public function __construct(array $post)
     {
-        $this->name = $post['title'];
+        $this->title = $post['title'];
         $this->description = $post['description'];
         $this->text = $post['text'];
         $this->errorStatus = "";
@@ -28,7 +28,7 @@ class Post
 
     public function validate(bool $type = false): bool
     {
-        if (iconv_strlen($this->name) < 3 or iconv_strlen($this->name) > 150) {
+        if (iconv_strlen($this->title) < 3 or iconv_strlen($this->title) > 150) {
             $this->errorStatus = "Хибна довжина заголовка: ";
             $this->errorText = "мусить бути меншою за 150 літер та довшою за 3 літери.";
             return false;
@@ -46,6 +46,14 @@ class Post
         if (!$type and empty($_FILES['img']['tmp_name'])) {
             $this->errorStatus = "Поле картинки: ";
             $this->errorText = "не задано.";
+            return false;
+        }
+        
+        $ext = explode(".", $_FILES['img']['name'])[1];
+        
+        if(!($ext === 'jpg' || $ext === 'png' || $ext === 'jpeg')) {
+            $this->errorStatus = "File type error: ";
+            $this->errorText = "jpg, jpeg, png is only allowed.   |$ext|";
             return false;
         }
 

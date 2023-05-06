@@ -8,7 +8,7 @@
                         <form action="/admin/add" method="post">
                             <div class="form-group">
                                 <label>Назва</label>
-                                <input class="form-control" type="text" name="name">
+                                <input class="form-control" type="text" name="title">
                             </div>
                             <div class="form-group">
                                 <label>Опис</label>
