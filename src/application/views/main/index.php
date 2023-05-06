@@ -23,6 +23,7 @@
                             <h5 class="post-subtitle"><?php echo htmlspecialchars($val['description'], ENT_QUOTES); ?></h5>
                         </a>
                         <p class="post-meta">Номер поста: <?php echo $val['id']; ?></p>
+                        <p class="post-meta">Додано: <?php echo $val['date']; ?></p>
                     </div>
                     <hr>
                 <?php endforeach; ?>

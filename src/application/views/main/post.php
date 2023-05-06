@@ -8,14 +8,15 @@
                 </div>
             </div>
         </div>
-        <?php if(isset($_SESSION['admin'])) {?>
-        <a href="/admin/edit/<?php echo $data['id']; ?>" class="btn btn-primary">Редагувати</a>
+        <?php if (isset($_SESSION['admin'])) { ?>
+            <a href="/admin/edit/<?php echo $data['id']; ?>" class="btn btn-primary">Редагувати</a>
         <?php } ?>
     </div>
 </header>
 <div class="container">
     <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
+            <p class="post-meta">Номер поста: <?php echo $data['date']; ?></p>
             <p><?php echo htmlspecialchars($data['text'], ENT_QUOTES); ?></p>
         </div>
     </div>
