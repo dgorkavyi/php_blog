@@ -13,3 +13,5 @@
 'DELETE FROM posts WHERE id=3;'
 'SELECT * FROM posts;'
 'SELECT * FROM posts WHERE id=4;'
+'SELECT * FROM posts;'
+'SELECT * FROM posts WHERE id=4;'
